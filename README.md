@@ -1,6 +1,8 @@
 # ExceptionGateway
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/strikingly/exception_gateway.png)](https://travis-ci.org/strikingly/exception_gateway)
+
+A wrapper for error reporting services, currently only bugsnag is supported
 
 ## Installation
 
