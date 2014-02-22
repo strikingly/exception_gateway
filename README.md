@@ -20,8 +20,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Configure the backend for error reporting, for example with bugsnag:
+    Bugsnag.configure do |config|
+      config.release_stage = ENV['RACK_ENV']
+      config.api_key = ENV['BUGSNAG_API_KEY']
+    end
 
+2. Configure exception_gateway to use the configured backend
+    ExceptionGateway.configure do |config|
+      config.backend = :bugsnag
+    end
+
+3. Use ExceptionGateway to report exception or erros:
+
+    ExceptionGateway.alert("Error!", :msg => "cannot connect to server")
+    
+    begin
+      raise RuntimeError.new("stack overflow")
+    rescue Exception => e
+      ExceptionGateway.transmit(e)
+      raise
+    end
+
+    ExceptionGateway.time("roundtrip time") do
+      sleep 3
+    end
+    
 ## Contributing
 
 1. Fork it
