@@ -4,6 +4,7 @@ require "exception_gateway/vendors/bugsnag"
 module ExceptionGateway
   class Config
     attr_accessor :backend
+    attr_accessor :bugsnag_alert_api_key # configure this to enable bugsnag to log into separate project for alerts
   end
 
   class Gateway
@@ -15,6 +16,10 @@ module ExceptionGateway
     yield c
     @@config = c
     @@gateway = Gateway.new
+  end
+
+  def self.config
+    @@config
   end
 
   def self.alert(msg, options={})
