@@ -1,5 +1,6 @@
 require "exception_gateway/version"
 require "exception_gateway/vendors/bugsnag"
+require "exception_gateway/vendors/sentry"
 
 module ExceptionGateway
   class Config
