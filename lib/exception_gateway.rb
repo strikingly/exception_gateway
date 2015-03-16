@@ -9,7 +9,7 @@ module ExceptionGateway
 
   class << self
     def configure
-      yield c
+      yield self
     end
 
     def alert(msg, options = {})
