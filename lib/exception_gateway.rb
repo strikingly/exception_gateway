@@ -7,6 +7,8 @@ module ExceptionGateway
   # This value must be set for Bugsnag or Sentry
   mattr_accessor :api_key
 
+  @@adapter = nil
+
   class << self
     def configure
       yield self
@@ -51,3 +53,6 @@ module ExceptionGateway
     end
   end
 end
+
+require_relative 'exception_gateway/errors/standard_error'
+require_relative 'exception_gateway/errors/invalid_adapter_error'
