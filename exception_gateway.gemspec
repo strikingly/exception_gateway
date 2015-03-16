@@ -6,10 +6,10 @@ require 'exception_gateway/version'
 Gem::Specification.new do |spec|
   spec.name          = "exception_gateway"
   spec.version       = ExceptionGateway::VERSION
-  spec.authors       = ["Li Zhenchao"]
-  spec.email         = ["leezhenchao@gmail.com"]
+  spec.authors       = ["Li Zhenchao, Daniel Gong"]
+  spec.email         = ["leezhenchao@gmail.com, daniel@strikingly.com"]
   spec.description   = %q{A wrapper for error reporting services}
-  spec.summary       = %q{A wrapper for error reporting services, currently only bugsnag is supported}
+  spec.summary       = %q{A wrapper for error reporting services, currently only bugsnag & sentry supported}
   spec.homepage      = "https://github.com/strikingly/exception_gateway"
   spec.license       = "MIT"
 
