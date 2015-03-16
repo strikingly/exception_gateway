@@ -54,5 +54,6 @@ module ExceptionGateway
   end
 end
 
+require_relative 'exception_gateway/adapters/abstract_adapter'
 require_relative 'exception_gateway/errors/standard_error'
 require_relative 'exception_gateway/errors/invalid_adapter_error'
