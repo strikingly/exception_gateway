@@ -1,11 +1,11 @@
 module ExceptionGateway
   # Which exception backend you wanna wrap.
   # Value must be either +:bugsnag+ or +:sentry+
-  mattr_accessor :backend
+  cattr_accessor :backend
 
   # Secret key to connect to the backend API
   # This value must be set for Bugsnag or Sentry
-  mattr_accessor :api_key
+  cattr_accessor :api_key
 
   @@adapter = nil
 
