@@ -9,11 +9,13 @@ module ExceptionGateway
         @config = OpenStruct.new(config)
       end
 
+      private
+
       def setup_params(msg, options)
         params = { :details => options }
-        params[:api_key] = config.api_key if config.api_key
+        params[:api_key] = config.alert_api_key if config.alert_api_key
 
-        err = RuntimeError.new(msg)
+        err = msg.kind_of?(StandardError) ? msg : StandardError.new(msg)
 
         [err, params]
       end

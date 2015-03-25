@@ -5,9 +5,9 @@ module ExceptionGateway
   # Value must be either +:bugsnag+ or +:sentry+
   mattr_accessor :backend
 
-  # Secret key to connect to the backend API
-  # This value must be set for Bugsnag or Sentry
-  mattr_accessor :api_key
+  # Secret key to connect to an alternative room on the backend API
+  # Used to not pollute critical errors with alerts
+  mattr_accessor :alert_api_key
 
   @@adapter = nil
 
@@ -50,7 +50,7 @@ module ExceptionGateway
       adapter_klass = Adapters.const_get("#{backend.to_s.capitalize}Adapter")
 
       @@adapter = adapter_klass.new(
-        :api_key => api_key
+        :alert_api_key  => alert_api_key
       )
     end
   end
