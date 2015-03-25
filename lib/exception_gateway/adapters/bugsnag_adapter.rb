@@ -4,8 +4,9 @@ module ExceptionGateway
       def alert(msg, options = {})
         params = { :details => options }
         params[:api_key] = options[:api_key] if options[:api_key] # never used
+        error = msg.kind_of?(StandardError) ? msg : RuntimeError.new(msg)
 
-        Bugsnag.notify(RuntimeError.new(msg), params)
+        Bugsnag.notify(error, params)
       end
 
       def transmit(exception)
